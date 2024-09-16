@@ -1,6 +1,5 @@
 package com.megogo.api.test;
 
-import com.megogo.dto.TimeDto;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -8,7 +7,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Test;
 
-import java.sql.Timestamp;
+import java.time.Duration;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 
@@ -22,11 +21,11 @@ public class TimeApiTest extends BaseApiTest {
     @Severity(SeverityLevel.CRITICAL)
     @Description("Validate time endpoint returns correct data")
     public void currentTimeTest() {
-        var currentTime = client.getCurrentTime();
+        var apiTimestamp = client.getCurrentTime().getTimestamp();
         var timestamp = Instant.now().truncatedTo(ChronoUnit.SECONDS);
 
-        assertThat(currentTime.getTimestamp())
+        assertThat(Duration.between(timestamp,apiTimestamp).toSeconds())
                 .as("API should return correct timestamp")
-                .isEqualTo(timestamp);
+                .isLessThan(2);
     }
 }

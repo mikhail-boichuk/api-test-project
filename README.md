@@ -18,3 +18,8 @@ docker build -t "api-test-image" .
 docker run -d -p 8080:8080 --rm --name runTest api-test-image
 ```
 4. Navigate to http://localhost:8080 to observe Allure report
+
+### View results from GitHub workflows
+
+1. Navigate to [Actions](https://github.com/mikhail-boichuk/api-test-project/actions/workflows/run-with-github-actions.yaml) and find builds
+2. Navigate to https://mikhail-boichuk.github.io/api-test-project/{buildNumber}/ to find a report for specific build number ([exmaple](https://mikhail-boichuk.github.io/api-test-project/9/))

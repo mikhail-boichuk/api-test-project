@@ -1,6 +1,5 @@
 package com.megogo.client;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -41,11 +40,14 @@ public class MegogoApiClient {
     }
 
     @Step("Request current time from Megogo API")
-    public TimeDto getCurrentTime() throws IOException {
+    public TimeDto getCurrentTime() throws IOException, NullPointerException {
         try (Response response = client.newCall(
                         new Request.Builder().url(BASE_URL + "time").build())
-                .execute()) {
+                .execute()
+
+        ) {
             // Obtain response data as JSONObject
+            assert response.body() != null;
             var data = (JSONObject) new JSONObject(response.body().string()).get("data");
 
             return jsonMapper.readValue(data.toString(), TimeDto.class);
@@ -53,11 +55,12 @@ public class MegogoApiClient {
     }
 
     @Step("Request program schedule from Megogo API")
-    public ScheduleDto getScheduleById(String id) throws IOException {
+    public ScheduleDto getScheduleById(String id) throws IOException, NullPointerException {
         try (Response response = client.newCall(
                         new Request.Builder().url(BASE_URL + "channel?video_ids=" + id).build())
                 .execute()) {
             // obtain response data as JSONArray
+            assert response.body() != null;
             var data = (JSONArray) new JSONObject(response.body().string()).get("data");
 
             return jsonMapper.readValue(data.get(0).toString(), ScheduleDto.class);
