@@ -1,5 +1,5 @@
 name: Run API tests and publish report
-on: [push]
+on: [push, workflow_dispatch]
 jobs:
   Run-Api-test:
     runs-on: ubuntu-latest
