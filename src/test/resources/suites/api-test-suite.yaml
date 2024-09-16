@@ -1,0 +1,10 @@
+name: Megogo test Suite
+parallel: tests
+threadCount: 2
+
+tests:
+  - name: API tests
+    parallel: methods
+    threadCount: 4
+    packages:
+      - com.megogo.api.test
