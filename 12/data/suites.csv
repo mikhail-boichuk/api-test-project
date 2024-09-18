@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Wed Sep 18 11:19:41 GMT 2024","Wed Sep 18 11:19:44 GMT 2024","3145","Megogo test Suite","API tests","com.megogo.api.test.ScheduleApiTest","com.megogo.api.test.ScheduleApiTest","scheduleTest","scheduleTest","Validate time endpoint"
+"passed","Wed Sep 18 11:19:41 GMT 2024","Wed Sep 18 11:19:44 GMT 2024","3148","Megogo test Suite","API tests","com.megogo.api.test.ScheduleApiTest","com.megogo.api.test.ScheduleApiTest","scheduleTest","scheduleTest","Validate time endpoint"
+"passed","Wed Sep 18 11:19:41 GMT 2024","Wed Sep 18 11:19:44 GMT 2024","3146","Megogo test Suite","API tests","com.megogo.api.test.ScheduleApiTest","com.megogo.api.test.ScheduleApiTest","scheduleTest","scheduleTest","Validate time endpoint"
+"passed","Wed Sep 18 11:19:41 GMT 2024","Wed Sep 18 11:19:43 GMT 2024","1642","Megogo test Suite","API tests","com.megogo.api.test.TimeApiTest","com.megogo.api.test.TimeApiTest","currentTimeTest","currentTimeTest","Validate time endpoint returns correct data"
