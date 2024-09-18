@@ -21,5 +21,6 @@ docker run -d -p 8080:8080 --rm --name runTest api-test-image
 
 ### View results from GitHub workflows
 
-1. Navigate to [Actions](https://github.com/mikhail-boichuk/api-test-project/actions/workflows/run-with-github-actions.yaml) and find builds
-2. Navigate to https://mikhail-boichuk.github.io/api-test-project/{buildNumber}/ to find a report for specific build number ([exmaple](https://mikhail-boichuk.github.io/api-test-project/9/))
+1. Navigate to [Actions](https://github.com/mikhail-boichuk/api-test-project/actions/workflows/run-with-github-actions.yaml)
+2. Open latest workflow run, navigate to "TestNG report" ([example](https://github.com/mikhail-boichuk/api-test-project/actions/runs/10921537960/job/30313891082))
+2. Navigate to https://mikhail-boichuk.github.io/api-test-project/{runNumber}/ to find Allure report for specific run ([exmaple](https://mikhail-boichuk.github.io/api-test-project/14/))
