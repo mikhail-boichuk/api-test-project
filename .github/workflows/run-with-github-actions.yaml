@@ -19,11 +19,11 @@ jobs:
       - name: Run API tests
         run: ./gradlew clean test
 
-      - name: JUnit style report
+      - name: Generate TestNG report
         uses: dorny/test-reporter@v1
         if: always()
         with:
-          name: TestNG tests
+          name: TestNG report
           path: '**/junitreports/**.xml'
           reporter: java-junit
 
