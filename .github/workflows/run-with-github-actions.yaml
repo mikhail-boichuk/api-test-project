@@ -16,10 +16,18 @@ jobs:
           distribution: zulu
           java-version: 11
 
-      - name: Run tests
+      - name: Run API tests
         run: ./gradlew clean test
 
-      - name: Load test report history
+      - name: JUnit style report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: TestNG tests
+          path: '**/junitreports/**.xml'
+          reporter: java-junit
+
+      - name: Load Allure test report history
         uses: actions/checkout@v3
         if: always()
         continue-on-error: true
@@ -27,7 +35,7 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: Build test report
+      - name: Build Allure test report
         uses: simple-elf/allure-report-action@v1.7
         if: always()
         with:
@@ -35,7 +43,7 @@ jobs:
           allure_history: allure-history
           allure_results: build/allure-results
 
-      - name: Publish test report
+      - name: Publish Allure test report
         uses: peaceiris/actions-gh-pages@v3
         if: always()
         with:
